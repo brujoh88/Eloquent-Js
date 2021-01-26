@@ -20,6 +20,8 @@ function sum(arr) {
   }
   return sumador
 }
-
-console.log(range(10, 20, 5)) // [1,2,3,4,5,6,7,8,9,10]
+console.log(range(1, 20))
+console.log(range(100, 20, -5))
+console.log(range(10, 30, 3))
+console.log(range(-120, 20, 5))
 console.log(sum(range(1, 10)))

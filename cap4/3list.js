@@ -100,3 +100,9 @@ let list = {
   }
 };
 */
+function nth(list, pisicion) {
+  return listToArray(list)[pisicion]
+}
+console.log(
+  nth({ value: 14, rest: { value: 6, rest: { value: 9, rest: null } } }, 2)
+)

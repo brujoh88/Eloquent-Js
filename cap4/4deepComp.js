@@ -1,5 +1,4 @@
 function deepEqual(valueOne, valueTwo) {
-  let resp
   if (
     typeof valueOne == 'object' &&
     typeof valueTwo == 'object' &&
@@ -17,10 +16,9 @@ function deepEqual(valueOne, valueTwo) {
       if (keysOneObj[i] != keysTwoObj[i]) {
         return false
       }
-      resp = deepEqual(valueOneObj[i], valueTwoObj[i])
-      if (!resp) return false
+      if (!deepEqual(valueOneObj[i], valueTwoObj[i])) return false
     }
-    return resp
+    return true
   } else if (valueOne == valueTwo) {
     return true
   } else {

@@ -1,9 +1,9 @@
 function deepEqual(valueOne, valueTwo) {
   if (
-    typeof valueOne == 'object' &&
-    typeof valueTwo == 'object' &&
-    valueOne != null &&
-    valueTwo != null
+    typeof valueOne === 'object' &&
+    typeof valueTwo === 'object' &&
+    valueOne !== null &&
+    valueTwo !== null
   ) {
     keysOneObj = Object.keys(valueOne)
     keysTwoObj = Object.keys(valueTwo)
@@ -19,7 +19,7 @@ function deepEqual(valueOne, valueTwo) {
       if (!deepEqual(valueOneObj[i], valueTwoObj[i])) return false
     }
     return true
-  } else if (valueOne == valueTwo) {
+  } else if (valueOne === valueTwo) {
     return true
   } else {
     return false

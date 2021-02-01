@@ -1,4 +1,4 @@
-/* function characterScript(code) {
+function characterScript(code) {
   for (let script of SCRIPTS) {
     if (
       script.ranges.some(([from, to]) => {
@@ -23,7 +23,23 @@ function countBy(items, groupName) {
   }
   return counts
 }
-console.log('ciudad'.charCodeAt(2))
 
-console.log(String.fromCharCode(177))
- */
+function dominantDirection(text) {
+  let scripts = countBy(text, (char) => {
+    let script = characterScript(char.codePointAt(0))
+    return script ? script.direction : 'none'
+  }).filter(({ name }) => name != 'none')
+  console.log(scripts)
+
+  let total = scripts.reduce((n, { count }) => n + count, 0)
+  if (total == 0) return 'No scripts found'
+
+  return scripts.reduce((a, b) => {
+    return a.count > b.count ? a : b
+  }).name
+}
+
+console.log(dominantDirection('Hello!'))
+// → ltr
+console.log(dominantDirection('Hey, مساء الخير'))
+// → rtl
